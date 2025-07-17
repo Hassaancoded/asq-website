@@ -1,16 +1,13 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,3 +21,218 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pop {
+  animation: pop 1s ease-out forwards;
+}
+.card-tilt {
+  transform: perspective(1000px) rotateY(10deg);
+  transition: transform 0.5s, z-index 0.5s;
+}
+
+.card-tilt-left {
+  transform: perspective(1000px) rotateY(-10deg);
+  transition: transform 0.5s, z-index 0.5s;
+}
+
+.card-hovered {
+  transform: perspective(1000px) rotateY(0deg) scale(1.05);
+  z-index: 10;
+}
+@layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .custom-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+/* Common Style for All Boxes */
+.service-box {
+  background: white;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-box:hover {
+  background: #FF1B7E;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Normal Boxes */
+.service-box-normal {
+  border-radius: 20px;
+}
+
+/* Left Box with Big Curve */
+.service-box-left {
+  border-radius: 80px 0 0 80px;
+}
+
+/* Right Box with Big Curve */
+.service-box-right {
+  border-radius: 0 80px 80px 0;
+}
+/* Card shape morph */
+.custom-card {
+  clip-path: inset(0% round 20px);
+  transition: clip-path 0.6s ease-in-out, background-color 0.6s ease-in-out;
+}
+
+.active-card {
+  background-color: #FF1B7E;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 85%, 60% 85%, 50% 100%, 40% 85%, 0 85%
+  ); /* Creates the bottom curve */
+}
+background: rgba(217, 217, 217, 0.3);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+border-radius: 20px;
+
+
+section {
+  margin: 0;
+  padding-top: 0; /* Adjust if needed */
+  padding-bottom: 0; /* Adjust if needed */
+}
+/* Tilt effect */
+
+.custom-curve {
+  position: absolute;
+  inset: 0;
+  background-color: #ff1b7e;
+  z-index: 1;
+  clip-path: path("M0 0H260V400H260C260 400 260 400 260 400V0Z"); /* Flat */
+  transition: clip-path 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.active-curve {
+  clip-path: path("M0 0H260V400H20C-30 400 0 340 0 260V0Z"); /* Deep inward */
+}
+/* Existing Pink Curve Effect */
+.custom-curve {
+  position: absolute;
+  inset: 0;
+  background-color: #ff1b7e;
+  z-index: 1;
+  clip-path: path("M0 0H260V400H260C260 400 260 400 260 400V0Z");
+  transition: clip-path 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.active-curve {
+  clip-path: path("M0 0H260V400H20C-30 400 0 340 0 260V0Z");
+}
+
+/* New: Card Curving from Bottom-Left */
+.card-wrapper {
+  border-radius: 20px;
+  transition: border-radius 0.6s ease-in-out;
+}
+
+.curved-card {
+  border-bottom-left-radius: 190px; /* Big inward curve */
+}
+
+.card-inner {
+  border-radius: 0; /* Default straight sides */
+}
+
+.card-wrapper:hover .card-inner {
+  border-radius: 12px 12px 12px 100px; /* Slight curve on 3 sides */
+}
+.card-wrapper img {
+  border-radius: 20px; /* Matches small curve in normal state */
+  transition: border-radius 0.5s ease;
+}
+
+.curved-card.hovered-radius img {
+  border-radius: 40px; /* When card is fully rounded, image matches */
+}
+
+
