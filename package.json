@@ -2,7 +2,7 @@
   "name": "asq-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Hassaancoded.github.io/asq-website",
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
