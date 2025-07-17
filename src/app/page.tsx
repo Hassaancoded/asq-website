@@ -1,6 +1,4 @@
 "use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import ThirdSection from "../components/ThirdSection";
 import SecondSection from "../components/SecondSection";

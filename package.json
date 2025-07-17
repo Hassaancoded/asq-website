@@ -2,11 +2,11 @@
   "name": "asq-website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Hassaancoded.github.io/asq-website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "framer-motion": "^12.23.3",
@@ -25,8 +25,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6"
   }
 }
